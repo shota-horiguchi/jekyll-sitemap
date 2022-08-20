@@ -20,7 +20,7 @@
   {% for lang in site.languages %}
     {% for page in pages %}
       {% if lang != site.default_lang %}
-        {% capture page_url %}{{ lang }}/{{ page.url }}{% endcapture %}
+        {% capture page_url %}{{ lang }}{{ page.url }}{% endcapture %}
       {% else %}
         {% assign page_url = page.url %}
       {% endif %}

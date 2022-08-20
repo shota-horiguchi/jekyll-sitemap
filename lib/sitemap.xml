@@ -25,7 +25,7 @@
         {% assign page_url = page.url %}
       {% endif %}
       <url>
-        <loc>{{ page.url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
+        <loc>{{ page_url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
         {% if page.last_modified_at %}
           <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
         {% endif %}

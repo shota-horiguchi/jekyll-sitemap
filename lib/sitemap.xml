@@ -36,7 +36,7 @@
             {% assign page_url_alternate = page.url %}
           {% endif %}
         <xhtml:link
-          rel="alternate">
+          rel="alternate"
           hreflang="{{ hreflang }}"
           href="{{ page_url_alternate | replace:'/index.html','/' | absolute_url | xml_escape }}" />
         {% endfor %}

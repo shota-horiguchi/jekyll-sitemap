@@ -29,6 +29,17 @@
         {% if page.last_modified_at %}
           <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
         {% endif %}
+        {% for hreflang in site.languages %}
+          {% if hreflang != site.default_lang %}
+            {% capture page_url_alternate %}{{ hreflang }}{{ page.url }}{% endcapture %}
+          {% else %}
+            {% assign page_url_alternate = page.url %}
+          {% endif %}
+        <xhtml:link
+          rel="alternate">
+          hreflang="{{ hreflang }}"
+          href="{{ page_url_alternate | replace:'/index.html','/' | absolute_url | xml_escape }}" />
+        {% endfor %}
       </url>
     {% endfor %}
   {% endfor %}
